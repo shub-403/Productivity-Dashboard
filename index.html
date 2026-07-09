@@ -65,6 +65,17 @@
                     <h1 class="text-[var(--primary)] bg-transparent">QUOTES</h1>
                 </div>
                 <div
+                    class="card relative w-40 h-40 border border-[var(--border)] shadow-[var(--shadow)] rounded-xl overflow-hidden text-center hover:scale-110 transition duration-300 cursor-pointer">
+                
+                    <video src="./Assets/Videos/Weather_Hover.mp4" class="w-full h-full object-cover absolute top-0 left-0 z-[-1]" loop
+                        muted></video>
+                
+                    <h1 class="text-[var(--primary)]">
+                        WEATHER
+                    </h1>
+                
+                </div>
+                <div
                     class="card relative w-40 h-40 object-cover card-video border border-[var(--border)] shadow-[var(--shadow)] rounded-xl p-3 text-center hover:scale-110 transition duration-300 cursor-pointer">
                     <video src="./Assets/Videos/Timer_Hover.mp4"
                         class="w-full h-full card-video object-cover absolute top-0 left-0 rounded-xl block z-[-1]" loop muted ></video>
@@ -123,6 +134,75 @@
             </div>
         </section>
         <!-- TODO Section END -->
+
+        <!-- WEATHER Section START -->
+        <section class="WEATHER section bg-[var(--bg)] relative p-10 text-[var(--text)] w-full h-full hidden">
+        
+            <h1 class="text-4xl text-center mb-10">Today's Weather</h1>
+        
+            <button
+                class="bg-[var(--primary)] text-[var(--text)] p-3 rounded-xl close-btn absolute right-10 top-10 hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300 cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        
+            <div class="flex justify-center items-center">
+        
+                <div class="bg-[var(--card)] border border-[var(--border)] shadow-[var(--shadow)] rounded-xl w-120 p-8">
+        
+                    <!-- Location -->
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-3xl weather-city">Bhopal</h2>
+                            <p class="text-[var(--text-secondary)] weather-country">India</p>
+                        </div>
+        
+                        <i class="fa-solid fa-location-dot text-3xl text-[var(--primary)]"></i>
+                    </div>
+        
+                    <!-- Weather -->
+                    <div class="text-center">
+        
+                        <i class="weather-icon fa-solid fa-cloud-sun text-7xl text-[var(--primary)] mb-5"></i>
+        
+                        <h1 class="weather-temp text-7xl font-bold">
+                            31°
+                        </h1>
+        
+                        <p class="weather-condition text-xl text-[var(--primary)] mt-2">
+                            Clear Sky
+                        </p>
+        
+                    </div>
+        
+                    <!-- Details -->
+        
+                    <div class="grid grid-cols-2 gap-4 mt-10">
+        
+                        <div class="bg-[var(--surface)] rounded-xl p-4 border border-[var(--border)]">
+                            <i class="fa-solid fa-droplet text-[var(--primary)]"></i>
+                            <p class="text-sm mt-1">Humidity</p>
+                            <h3 class="weather-humidity text-xl font-semibold">65%</h3>
+                        </div>
+                        <div class="bg-[var(--surface)] rounded-xl p-4 border border-[var(--border)]">
+                            <i class="fa-solid fa-wind text-[var(--primary)]"></i>
+                            <p class="text-sm mt-1">Wind</p>
+                            <h3 class="weather-wind text-xl font-semibold">12 km/h</h3>
+                        </div>
+                        <div class="bg-[var(--surface)] rounded-xl p-4 border border-[var(--border)]">
+                            <i class="fa-solid fa-temperature-half text-[var(--primary)]"></i>
+                            <p class="text-sm mt-1">Feels Like</p>
+                            <h3 class="weather-feels text-xl font-semibold">33°</h3>
+                        </div>
+                        <div class="bg-[var(--surface)] rounded-xl p-4 border border-[var(--border)]">
+                            <i class="fa-solid fa-eye text-[var(--primary)]"></i>
+                            <p class="text-sm mt-1">Visibility</p>
+                            <h3 class="weather-visibility text-xl font-semibold">10 km</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- WEATHER Section END -->
 
         <!-- PLANNER Section START -->
         <section class="PLANNER section bg-[var(--bg)] relative p-10 text-[var(--text)] w-full h-fit hidden">
@@ -305,6 +385,7 @@
 
     <!-- Normal Script File -->
     <script src="./js/theme.js"></script>
+    <script type="module" src="./js/weather.js"></script>
     <script src="./js/datetime.js"></script>
     <script src="./js/todo.js"></script>
     <script src="./js/planner.js"></script>
