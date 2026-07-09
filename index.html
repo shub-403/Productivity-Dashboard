@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/animations.css">
+</head>
+
+<body>
+    <!-- Home Page START -->
+    <main class="relative">
+
+        <!-- VIDEO Box START -->
+        <div class="relative w-full h-full p-3">
+            <div class="videos absolute top-0 left-0 w-full h-full z-[-10]">
+                <video src="./Assets/Videos/Night_Video.mp4" loop muted autoplay
+                    class="object-cover w-full h-full nightVideo"></video>
+                <video src="./Assets/Videos/Day_Video.mp4" loop muted autoplay
+                    class="object-cover w-full h-full dayVideo"></video>
+            </div>
+                <button class="cursor-pointer theme-btn w-fit text-[var(--text)] bg-[var(--primary)] p-2 rounded-xl cursor-pointer hover:scale-102 hover:bg-[var(--primary-hover)] transition duration-300">Dark</button>
+            <!-- VIDEO Box END -->
+
+            <!-- DATE Box START -->
+            <div
+                class="clock mb-10 text-[var(--text)] bg-[var(--bg)] border border-[var(--border)] shadow-[var(--shadow)] w-100 h-50 rounded-xl p-4 text-center mx-auto">
+                <span class="block text-center"><i
+                        class="fa-regular fa-clock text-[var(--text)] text-5xl mb-2"></i></span>
+                <h1 class="text-5xl time inline-block"></h1>
+                <span class="text-xl text-[var(--primary)] amPm inline-block"></span>
+                <h3 class="text-[var(--primary)] day"></h3>
+                <h3 class="text-[var(--text-secondary)]"><span class="month"></span> <span class="date"></span>,<span
+                        class="year"></span></h3>
+            </div>
+            <!-- DATE Box END -->
+
+            <!-- CARDS Box START -->
+            <div class="flex flex-wrap justify-center gap-20 w-[80%] mx-auto cards-container">
+                <div
+                    class="card relative w-40 h-40 object-cover border border-[var(--border)] shadow-[var(--shadow)] rounded-xl overflow-hidden text-center hover:scale-110 transition duration-300 cursor-pointer">
+                    <video src="./Assets/Videos/Todo_Hover.mp4"
+                        class="w-full h-full card-video object-cover absolute top-0 left-0 rounded-xl block z-[-1]" loop
+                        muted ></video>
+                    <h1 class="text-[var(--primary)] bg-transparent">TODOS</h1>
+                </div>
+                <div
+                    class="card relative w-40 h-40 object-cover border border-[var(--border)] shadow-[var(--shadow)] overflow-hidden rounded-xl p-3 text-center hover:scale-110 transition duration-300 cursor-pointer">
+                    <video src="./Assets/Videos/Planner_Hover.mp4"
+                        class="w-full h-full card-video object-cover absolute top-0 left-0 block z-[-1]" loop muted
+                        ></video>
+                    <h1 class="text-[var(--primary)] bg-transparent">PLANNER</h1>
+                </div>
+                <div
+                    class="card relative w-40 h-40 object-cover border border-[var(--border)] shadow-[var(--shadow)] rounded-xl p-3 text-center hover:scale-110 transition duration-300 cursor-pointer">
+                    <video src="./Assets/Videos/Quotes_Hover.mp4"
+                        class="w-full h-full card-video object-cover absolute top-0 left-0 rounded-xl block z-[-1]" loop muted
+                        ></video>
+                    <h1 class="text-[var(--primary)] bg-transparent">QUOTES</h1>
+                </div>
+                <div
+                    class="card relative w-40 h-40 object-cover card-video border border-[var(--border)] shadow-[var(--shadow)] rounded-xl p-3 text-center hover:scale-110 transition duration-300 cursor-pointer">
+                    <video src="./Assets/Videos/Timer_Hover.mp4"
+                        class="w-full h-full card-video object-cover absolute top-0 left-0 rounded-xl block z-[-1]" loop muted ></video>
+                    <h1 class="text-[var(--primary)] bg-transparent">TIMER</h1>
+                </div>
+                <div
+                    class="card relative w-40 h-40 object-cover card-video border border-[var(--border)] overflow-hidden shadow-[var(--shadow)] rounded-xl p-3 text-center hover:scale-110 transition duration-300 cursor-pointer">
+                    <video src="./Assets/Videos/Goals_Hover.mp4"
+                        class="w-full h-full card-video object-cover absolute top-0 left-0 block z-[-1]" loop muted ></video>
+                    <h1 class="text-[var(--primary)] bg-transparent">GOALS</h1>
+                </div>
+            </div>
+            <!-- CARDS Box END -->
+
+        </div>
+
+        <!-- TODO Section START -->
+        <section class="TODOS section bg-[var(--bg)] relative p-10 text-[var(--text)] w-full h-full hidden">
+            <h1 class="text-center text-4xl mb-4">ADD Your Todo Task</h1>
+            <button
+                class="bg-[var(--primary)] text-[var(--text)] p-3 rounded-xl close-btn absolute right-10 top-10 cursor-pointer hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="bg-[var(--bg)] w-full h-full flex gap-3">
+                <div class="bg-[var(--surface)] border border-[var(--border)] w-200 h-full p-4">
+                    <form class="todoForm">
+                        <label for="todoname" class="pl-2">Enter Your Task:</label>
+                        <input id="todoname" name="todoname" type="text" placeholder="Enter Your Todo"
+                            class="block p-2 border border-[var(--border)] rounded-2xl outline-none w-full mt-2 mb-4">
+                        <label for="taskdescription">Enter Task Description:</label>
+                        <textarea id="taskdescription" name="taskdescription" rows="5" cols="30"
+                            placeholder="Enter description..."
+                            class="block p-2 border border-[var(--border)] rounded-2xl outline-none w-full mt-2 mb-4"></textarea>
+                        <input type="checkbox" id="important" name="important">
+                        <label for="important">Mark this as important</label>
+                        <button
+                            class="block bg-[var(--primary)] text-center p-3 rounded-xl mx-auto mt-4 hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300 cursor-pointer">Add
+                            Task</button>
+                    </form>
+                </div>
+                <div class="bg-[var(--surface)] display-task-box border border-[var(--border)] w-full h-full p-4 flex flex-col gap-3 task-container">
+                    <div class="bg-[var(--secondary)] rounded-xl relative p-3 flex gap-3 items-center">
+                        <div class="w-full">
+                            <p class="">This is your task <span
+                                    class="text-xs bg-[var(--primary)] p-1 rounded-2xl text-[var(--bg)] impTag hidden">Imp</span></p>
+                            <p class="mt-2 border-t">Ths task is for Eating food</p>
+                        </div>
+                        <div class="w-10">
+                            <button
+                                class="taskdel bg-[var(--primary)] p-3 rounded-xl hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300 cursor-pointer"><i
+                                    class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- TODO Section END -->
+
+        <!-- PLANNER Section START -->
+        <section class="PLANNER section bg-[var(--bg)] relative p-10 text-[var(--text)] w-full h-fit hidden">
+            <h1 class="text-center text-4xl mb-4">Plan your Day to be more Productivity</h1>
+            <button
+                class="bg-[var(--primary)] text-[var(--text)] p-3 rounded-xl close-btn absolute right-10 top-10 cursor-pointer hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="bg-[var(--surface)] w-full h-full border border-[var(--border)] rounded-xl p-4">
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">06:00 - 07:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">07:00 - 08:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">08:00 - 09:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">09:00 - 10:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">10:00 - 11:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">11:00 - 12:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">12:00 - 13:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">13:00 - 14:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">14:00 - 15:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">15:00 - 16:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">16:00 - 17:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">17:00 - 18:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">18:00 - 19:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">19:00 - 20:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">20:00 - 21:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">21:00 - 22:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">22:00 - 23:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                    <div class="bg-[var(--bg)]  h-fit border border-[var(--border)] rounded-xl p-2 flex-grow">
+                        <h1 class="text-center">23:00 - 24:00</h1>
+                        <p contenteditable="true" class="plannername"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- PLANNER Section END -->
+
+        <!-- QUOTES Section START -->
+        <section class="QUOTES section bg-[var(--bg)] relative p-10 text-[var(--text)] w-full h-full hidden">
+            <h1 class="text-center text-4xl mb-3">Today's Quotes</h1>
+            <button
+                class="bg-[var(--primary)] text-[var(--text)] p-3 rounded-xl close-btn absolute right-10 top-10 cursor-pointer hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="h-full w-full flex items-center justify-center">
+                <div
+                    class="border border-[var(--border)] p-3 w-250 bg-[var(--card)] text-[var(--primary)] shadow-[var(--shadow)] rounded-xl">
+                    <h1 class="text-xl display-quote"></h1>
+                    <p class="mt-2 text-right text-sm"><span
+                            class="authorname bg-[var(--bg)] p-2 rounded-xl border border-[var(--border)]"></span></p>
+                </div>
+            </div>
+        </section>
+        <!-- QUOTES Section END -->
+
+        <!-- TIMER Section START -->
+        <section class="TIMER section bg-[var(--bg)] relative p-10 text-[var(--text)] w-full h-full hidden">
+            <h1 class="text-4xl text-center mb-10">Study Timer</h1>
+            <button
+                class="bg-[var(--primary)] text-[var(--text)] p-3 rounded-xl close-btn absolute right-10 top-10 cursor-pointer hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="w-full h-full flex items-center jutify-center">
+                <div
+                    class="bg-[var(--card)] border border-[var(--border)] rounded-xl w-100 h-50 mx-auto p-3 flex flex-col justify-between">
+                    <h1 class="text-6xl text-center text-[var(--primary)] timeDispay">25:00</h1>
+                    <div class="p-3 flex justify-between">
+                        <button
+                            class="bg-[var(--success)]/80 py-3 px-6 rounded-xl hover:bg-[var(--success)] hover:scale-110 transition duration-300 cursor-pointer timerStart">Start</button>
+                        <button
+                            class="bg-[var(--warning)]/80 py-3 px-6 rounded-xl hover:bg-[var(--warning)] hover:scale-110 transition duration-300 cursor-pointer timerStop">Stop</button>
+                        <button
+                            class="bg-[var(--danger)]/80 py-3 px-6 rounded-xl hover:bg-[var(--danger)] hover:scale-110 transition duration-300 cursor-pointer timerReset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- TIMER Section END -->
+
+        <!-- GOALS Section START -->
+        <section class="GOALS section bg-[var(--bg)] relative p-10 text-[var(--text)] w-full h-full hidden">
+            <h1 class="text-4xl text-center mb-10">Your Goals</h1>
+            <button
+                class="bg-[var(--primary)] text-[var(--text)] p-3 rounded-xl close-btn absolute right-10 top-10 cursor-pointer hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="bg-[var(--bg)] w-full h-full flex gap-3">
+                <div class="bg-[var(--surface)] border border-[var(--border)] w-200 h-full p-4">
+                    <form class="goalsForm">
+                        <label for="goalname" class="pl-2">Enter Your Goal:</label>
+                        <input id="goalname" name="goalname" type="text" placeholder="Enter Your Goal"
+                            class="block p-2 border border-[var(--border)] rounded-2xl outline-none w-full mt-2 mb-4">
+                        <label for="goaldescription">How you achieve:</label>
+                        <textarea id="goaldescription" name="goaldescription" rows="5" cols="30"
+                            placeholder="How you gonna achieve your goal..."
+                            class="block p-2 border border-[var(--border)] rounded-2xl outline-none w-full mt-2 mb-4"></textarea>
+                        <button
+                            class="block bg-[var(--primary)] text-center p-3 rounded-xl mx-auto mt-4 hover:bg-[var(--primary-hover)] hover:scale-110 transition duration-300 cursor-pointer">Add
+                            Goal</button>
+                    </form>
+                </div>
+                <div class="goalsDisplayDiv bg-[var(--surface)] border border-[var(--border)] w-full h-full p-4 flex flex-col gap-3">
+                    
+                </div>
+            </div>
+        </section>
+        <!-- GOALS Section END -->
+
+    </main>
+    <!-- Home Page END -->
+
+    <!-- GSAP CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+
+    <!-- GSAP Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
+
+    <!-- Normal Script File -->
+    <script src="./js/theme.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/datetime.js"></script>
+    <script src="./js/todo.js"></script>
+    <script src="./js/planner.js"></script>
+    <script src="./js/goals.js"></script>
+    <script src="./js/timer.js"></script>
+    <script type="module" src="./js/quote.js"></script>
+    <script src="./js/animation.js"></script>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

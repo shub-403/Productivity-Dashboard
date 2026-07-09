@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    font-family: "Inter" , sans-serif;
+}
+
+html,
+body,
+main {
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    /* Backgrounds */
+    --bg: #F5F7FA;
+    --surface: #FFFFFF;
+    --card: #FFFFFF;
+
+    /* Brand */
+    --primary: #FF8C42;
+    --primary-hover: #F97316;
+    --secondary: #FFB26B;
+    --accent: #FF9F43;
+
+    /* Text */
+    --text: #1F2937;
+    --text-secondary: #6B7280;
+
+    /* Borders */
+    --border: #E5E7EB;
+
+    /* Status */
+    --success: #22C55E;
+    --warning: #FACC15;
+    --danger: #EF4444;
+    --info: #3B82F6;
+
+    /* Shadow */
+    --shadow: 0 8px 25px rgba(17, 24, 39, 0.08);
+}
+
+[data-theme="dark"] {
+    /* Backgrounds */
+    --bg: #0F1115;
+    --surface: #181C23;
+    --card: #222831;
+
+    /* Brand */
+    --primary: #FF8C42;
+    --primary-hover: #FFA94D;
+    --secondary: #FFB26B;
+    --accent: #FF9F43;
+
+    /* Text */
+    --text: #F8FAFC;
+    --text-secondary: #9CA3AF;
+
+    /* Borders */
+    --border: #31363F;
+
+    /* Status */
+    --success: #4ADE80;
+    --warning: #FBBF24;
+    --danger: #F87171;
+    --info: #60A5FA;
+
+    /* Shadow */
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
