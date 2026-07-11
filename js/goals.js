@@ -29,7 +29,7 @@ goalsForm.addEventListener("submit", (e) => {
   let goalNameVal = goalName.value.trim();
   let goalDescriptionVal = goalDescription.value.trim();
 
-  if (goalNameVal === "" && goalDescriptionVal === "") {
+  if (goalNameVal === "" || goalDescriptionVal === "") {
     alert("please Enter your goal");
     return;
   }
