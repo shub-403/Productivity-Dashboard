@@ -31,7 +31,7 @@ todoForm.addEventListener("submit", (e) => {
   let todoname = todoName.value.trim();
   let taskdescription = taskDescription.value.trim();
   let impbtn = impBtn.checked;
-  if (todoname === "" && taskdescription === "") {
+  if (todoname === "" || taskdescription === "") {
     alert("please Enter Fiels");
     return;
   }
